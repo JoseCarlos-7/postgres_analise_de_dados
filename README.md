@@ -44,6 +44,30 @@ As pastas logs, plugins e config também são indispensáveis.
 * cd app
 * docker compose -f airflow-docker-compose.yaml up   
 
+Após a execução do build, você poderá acessar o banco de dados utilizando os parâmetros definidos no arquivo airflow-docker-compose, na chave environment.
+***!Atenção para a porta desse serviço, que foi definida como 5433 para não gerar conflito com o postgres usado pelo airflow para guardar os metadados, que já utiliza a porta padrão 5432.!***
+
+```
+  postgres_custom:
+    image: postgres:13
+    container_name: postgres_custom
+    environment:
+      POSTGRES_USER: sql_user
+      POSTGRES_PASSWORD: user123
+      POSTGRES_DB: data_postgres_db
+    ports:
+      - "5433:5432"  # Expõe na porta 5433 para evitar conflito com o PostgreSQL do Airflow
+    volumes:
+      - postgres-custom-db-volume:/var/lib/postgresql/data
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "data_postgres_db"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+    restart: always
+```
+
 ### Resolução.
 
 **Questão 1.**
