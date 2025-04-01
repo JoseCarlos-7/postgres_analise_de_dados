@@ -24,11 +24,19 @@ b. (com base no resultado de a.)
 
 ### Passos para executar o projeto.
 Após clonar o repositório, verifique se as pastas temp, backups e source estão presentes no diretório; Se não crie-as.
-Ajuste o caminho para as pastas temp, backups e source descritos no arquivo .env.
+Crie dentro da pasta app, um arquivo chamado .env, com o conteúdo abaixo, editando os caminhos das pastas source, temp e backups: <br>
 ```
-DATA_DIRECTORY='C:\Users\josec\Desktop\projeto_subir\analise_postgres\source'
-TEMP_DIRECTORY='C:\Users\josec\Desktop\projeto_subir\analise_postgres\temp'
-BACKUP_DIRECTORY='C:\Users\josec\Desktop\projeto_subir\analise_postgres\backups'
+AIRFLOW_UID=50000
+AIRFLOW_GID=0
+AIRFLOW_PORT=8080
+
+DATA_DIRECTORY='aqui o caminho para a pasta source'
+TEMP_DIRECTORY='aqui o caminho para a pasta temp'
+BACKUP_DIRECTORY='aqui o caminho para a pasta backups'
+
+DATA_DIRECTORY_CONTAINER='/app/data'
+TEMP_DIRECTORY_CONTAINER='/app/data/temp_data'
+BACKUP_DIRECTORY_CONTAINER='/app/backups'
 ```
 
 As pastas logs, plugins e config também são indispensáveis. 
