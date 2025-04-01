@@ -41,8 +41,8 @@ BACKUP_DIRECTORY_CONTAINER='/app/backups'
 
 As pastas logs, plugins e config também são indispensáveis. 
 
-cd app
-docker compose -f airflow-docker-compose.yaml up   
+* cd app
+* docker compose -f airflow-docker-compose.yaml up   
 
 ### Resolução.
 
