@@ -44,7 +44,7 @@ As pastas logs, plugins e config também são indispensáveis.
 * cd app
 * docker compose -f airflow-docker-compose.yaml up   
 
-Após a execução do build, você poderá acessar o banco de dados utilizando os parâmetros definidos no arquivo airflow-docker-compose, na chave environment.
+Após a execução do build, você poderá acessar o banco de dados utilizando os parâmetros definidos no arquivo airflow-docker-compose, na chave environment. <br>
 ***!Atenção para a porta desse serviço, que foi definida como 5433 para não gerar conflito com o postgres usado pelo airflow para guardar os metadados, que já utiliza a porta padrão 5432.!***
 
 ```
