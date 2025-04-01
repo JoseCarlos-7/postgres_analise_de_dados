@@ -68,7 +68,7 @@ Após a execução do build, você poderá acessar o banco de dados utilizando o
     restart: always
 ```
 
-### Resolução.
+### Modelagem utilizada para análise.
 
 **Questão 1.**
 ![questão 1](app/imagens/diagrama_questao_1.png)
